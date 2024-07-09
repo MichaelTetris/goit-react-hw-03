@@ -1,17 +1,19 @@
 /* import React from 'react'; */
 
 
-
 import css from "./app.module.css";
+import ContactForm from "./ContactForm/contactForm";
 
-import { useState, useEffect } from "react";
+/* import { useState, useEffect } from "react"; */
+
 
 const App = () => {
-  
-
   return (
     <div className={css.container}>
-      <p>Hi</p>
+      <h1>Phonebook</h1>
+      <ContactForm/>
+      {/* <SearchBox />
+      <ContactList /> */}
     </div>
   );
 };
