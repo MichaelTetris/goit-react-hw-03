@@ -1,23 +1,21 @@
-/* import Contact from "./Contact"; */
-
-
 
 
 import Contact from "./Contact";
 import css from "./element.module.css";
 
-const ContactList = ({ user, onDeleteContact }) => {
+function ContactList ({contacts}) {
   return (
-    <ul className={css.contactList}>
-      {user.map((contact) => (
-        <Contact
-          key={contact.id}
-          // id={id}
-          contact={contact}
-          onDeleteContact={onDeleteContact}
-        />
+    <ul>
+      {contacts.map((contact) => (
+        <li  key={contact.id}>
+          <Contact data={contact} />
+        </li>
       ))}
     </ul>
   );
-};
+}
+    
+  
+
+
 export default ContactList;
