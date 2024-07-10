@@ -4,12 +4,13 @@ import css from './form.module.css';
 
 const ContactForm = () => {
   return (
-    <Formik initialValues={{}} onSubmit={() => {}}>
+    <Formik initialValues={{ name: "0",
+      number: "0"}} onSubmit={() => {}}>
 			<Form className={css.form}>
 				<label htmlFor="name">Name</label>
-        <Field className ={css.input}  name="name" />
+        <Field className ={css.input} id="name"  name="name" />
         <label htmlFor="number">Number</label>
-        <Field className ={css.input}  name="number" />
+        <Field className ={css.input} id="number"  name="number" />
         <button className ={css.btn}  type="submit">Add Contact</button>
 
 			</Form>
