@@ -1,5 +1,4 @@
 
-
 import Contact from "./Contact";
 import css from "./element.module.css";
 
@@ -15,7 +14,4 @@ function ContactList ({contacts}) {
   );
 }
     
-  
-
-
 export default ContactList;

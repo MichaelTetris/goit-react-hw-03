@@ -6,7 +6,7 @@ import userArr from "./array.json"
 import ContactForm from "./ContactForm/contactForm";
 import SearchBox from "./SearchBox/SearchBox";
 import ContactList from "./ContactList/ContactList ";
-import Contact from "./ContactList/Contact";
+/* import Contact from "./ContactList/Contact"; */
 
 import { useState, useEffect } from "react";
 
@@ -29,21 +29,29 @@ const App = () => {
   const [contacts, setContacts] = useState(userArr);
   const [filter, setFilter] = useState("");
 
-  useEffect(() => {
+ /*  useEffect(() => {
     localStorage.setItem("contacts", JSON.stringify(contacts));
-  }, [contacts]);
+  }, [contacts]); */
 
   
   const filteredContacts = contacts.filter((contact) =>
     contact.name.toLowerCase().includes(filter.toLowerCase())
   );
+   
+
+  //function by change state
+  const addContact = (newContact) => {
+    setContacts((prevContacts) => {
+      return [...prevContacts, newContact]
+    })
+  }
 
   
 
   return (
     <div className={css.container}>
       <h1>Phonebook</h1>
-      <ContactForm />
+      <ContactForm  onAdd={addContact}/>
       <SearchBox />
       <ContactList contacts={contacts} />
     </div>
