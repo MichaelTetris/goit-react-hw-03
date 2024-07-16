@@ -8,11 +8,11 @@ const Contact = ({ data: { id, name, number } }) => {
       <ul>
         <li className={css.string}>
           <FaUser />
-          <p>{name}</p>
+          <p className={css.icon}>{name}</p>
         </li>
         <li className={css.string}>
           <FaPhoneAlt />
-          <p>{number}</p>
+          <p className={css.icon}>{number}</p>
         </li>
       </ul>
       <button>Delete</button>
