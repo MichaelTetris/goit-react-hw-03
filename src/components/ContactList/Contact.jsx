@@ -2,7 +2,11 @@ import { FaUser } from "react-icons/fa";
 import { FaPhoneAlt } from "react-icons/fa";
 import css from "./element.module.css";
 
-const Contact = ({ data: { id, name, number } }) => {
+
+
+
+const Contact = ({ data: { id, name, number } , onDelete}) => {
+  
   return (
     <div id={id} className={css.element}>
       <ul>
@@ -15,7 +19,7 @@ const Contact = ({ data: { id, name, number } }) => {
           <p className={css.icon}>{number}</p>
         </li>
       </ul>
-      <button>Delete</button>
+      <button onClick={() => onDelete(id)}>Delete</button>
     </div>
   );
 };

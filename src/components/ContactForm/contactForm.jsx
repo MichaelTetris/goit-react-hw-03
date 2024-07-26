@@ -8,6 +8,7 @@ import * as Yup from "yup";
 const ContactForm = ({ onAdd }) => {
   const nameFieldId = useId();
   const numberFieldId = useId();
+  const id = Date.now();
 
   const validationSchema = Yup.object().shape({
     name: Yup.string().min(2, "min 2").required("required"),
@@ -16,7 +17,7 @@ const ContactForm = ({ onAdd }) => {
 
   return (
     <Formik
-      initialValues={{ name: "", number: "" }}
+      initialValues={{ id, name: "", number: "" }}
       onSubmit={(value, actions) => {
         actions.resetForm();
         onAdd(value);
