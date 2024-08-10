@@ -6,12 +6,17 @@ import userArr from "./array.json";
 import ContactForm from "./ContactForm/contactForm";
 import SearchBox from "./SearchBox/SearchBox";
 import ContactList from "./ContactList/ContactList ";
-/* import Contact from "./ContactList/Contact"; */
 
 import { useState, useEffect } from "react";
 
 const App = () => {
-  const [contacts, setContacts] = useState(userArr);
+
+  const getStoredContacts = () => {
+    const StoredContacts = localStorage.getItem("contacts");
+    return StoredContacts ? JSON.parse(StoredContacts) : userArr;
+  };
+
+  const [contacts, setContacts] = useState(getStoredContacts());
   const [filter, setFilter] = useState("");
 
   //function by change state
@@ -22,22 +27,14 @@ const App = () => {
   };
 
   useEffect(() => {
-    localStorage.setItem("contacts", JSON.stringify(contacts));
+    window.localStorage.setItem("contacts", JSON.stringify(contacts));
   }, [contacts]);
 
   
-
   const filteredContacts = contacts.filter((contact) =>
     contact.name.toLowerCase().includes(filter.toLowerCase())
   );
 
-  
-
-  const getStoredContacts = () => {
-    const StoredContacts = localStorage.getItem("contacts");
-    return StoredContacts ? JSON.parse(StoredContacts) : userArr;
-  };
-  
   // function delete contact
   const deleteContact = (contactId) => {
     console.log(contactId);
@@ -45,8 +42,6 @@ const App = () => {
       return prevContacts.filter(contact => contact.id !== contactId)
     })
   }
-
-  
 
   return (
     <div className={css.container}>

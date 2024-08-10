@@ -2,13 +2,14 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 
 import { useId } from "react";
 import css from "./form.module.css";
+import { nanoid } from 'nanoid';
 
 import * as Yup from "yup";
 
 const ContactForm = ({ onAdd }) => {
   const nameFieldId = useId();
   const numberFieldId = useId();
-  const id = Date.now();
+  const id = nanoid();
 
   const validationSchema = Yup.object().shape({
     name: Yup.string().min(2, "min 2").required("required"),
