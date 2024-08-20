@@ -1,17 +1,15 @@
-import { Formik, Form, Field} from 'formik';
-import css from "./search.module.css"
+/* import { Formik, Form, Field} from 'formik'; */
+import css from "./search.module.css";
 
-
-const SearchBox = () => {
+const SearchBox = ({ value, onFilter }) => {
   return (
-    
-    <Formik>
-      <Form className= {css.container}>
-      <label htmlFor='filter'>Find conct by name</label>
-      <Field name='filter'/>
-      </Form>
-    </Formik>
-  )
+    <div className={css.container}>
+      <p>Find contacts by name</p>
+      <label>
+        <input type="text" name="searchBox" value={value} onChange={onFilter} />
+      </label>
+    </div>
+  );
 };
 
 export default SearchBox;

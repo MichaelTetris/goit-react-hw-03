@@ -35,6 +35,11 @@ const App = () => {
     contact.name.toLowerCase().includes(filter.toLowerCase())
   );
 
+  const handleFilter = (event) => {
+    const value = event.target.value;
+    setFilter(value);
+  };
+
   // function delete contact
   const deleteContact = (contactId) => {
     console.log(contactId);
@@ -47,8 +52,8 @@ const App = () => {
     <div className={css.container}>
       <h1>Phonebook</h1>
       <ContactForm onAdd={addContact} />
-      <SearchBox />
-      <ContactList contacts={contacts}  onDelete={deleteContact} />
+      <SearchBox value={filter} onFilter={handleFilter}/>
+      <ContactList contacts={contacts} filteredUserName={filteredContacts}  onDelete={deleteContact} />
     </div>
   );
 };
