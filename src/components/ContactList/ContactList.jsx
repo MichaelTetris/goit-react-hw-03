@@ -1,6 +1,6 @@
 
-import Contact from "./Contact";
-import css from "./element.module.css";
+import Contact from "../Contact/Contact";
+/* import css from "./element.module.css"; */
 
 function ContactList ({contacts, filteredUserName, onDelete}) {
   return (
