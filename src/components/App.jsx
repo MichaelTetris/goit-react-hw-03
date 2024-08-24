@@ -5,7 +5,7 @@ import userArr from "./array.json";
 
 import ContactForm from "./ContactForm/contactForm";
 import SearchBox from "./SearchBox/SearchBox";
-import ContactList from "./ContactList/ContactList ";
+import ContactList from "./ContactList/ContactList";
 
 import { useState, useEffect } from "react";
 
